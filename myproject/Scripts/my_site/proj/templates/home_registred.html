@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css\home_registerd.css' %}">
+
+<head>
+<title> FCAI-Homepage</title>
+
+
+</head>
+
+
+
+
+<body>
+    <div class="head">
+
+    <h1> 
+        <img style="width: 70px;" src="{%static 'img\download.png'%}">  
+        <a href="homePage/" >FCAI-Homepage</a>
+    </h1>
+    
+    </div>
+
+
+<div class="topnav">
+     <a class="active"> <i class="fa fa-home"></i>  Home</a>
+     <a href="{% url 'index4' %}" > <i class="fa fa-floppy-o"></i> New student</a>
+     <a href="{% url 'index6' %}">  <i class="fa fa-edit"></i> Update student</a>
+     <a href="{% url 'index7' %}"><i class='fa fa-vcard-o'></i> Student information</a>
+     <a href="{% url 'index10' %}"> <i class="fa fa-user-circle-o"></i> Profile</a>
+    <a href="{% url 'index8' %}"><i class='fa fa-toggle-on'></i> Change student activity</a>
+     <a href="{% url 'index2' %}"><i class='fa fa-sign-out'></i> Signout</a> 
+     <a></a><a></a>
+   
+     <a>Search by name:</a>
+
+     <form target="_top" action="dep/" class="formaa" method="post" >
+        {% csrf_token %}
+        <button type="submit" id="bot"><i class='fa fa-search' ></i> </button>
+          <input type="search" placeholder="Department signin"  name="name1">
+      </form>
+      
+      <form  target="_top" action="table/" class="formaa" method="post">
+          {% csrf_token %}
+         <button type="submit" id="bot" ><i class='fa fa-search' ></i> </button>
+          <input type="search" placeholder="Activity list " name="name2">
+         </form>
+        
+    
+  </div>
+
+
+
+
+
+
+
+  
+  
+  
+     
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+</html>

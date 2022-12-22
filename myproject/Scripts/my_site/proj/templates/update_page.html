@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/update_page.css' %}">
+    <head>
+      <script src="{% static 'js\new_sudent_update.js' %}"></script>  
+        <title>update page</title>
+        
+
+
+        </head>
+
+<body>
+    
+    <div class="head">
+
+        <h1> 
+            <img style="width: 70px;" src="{% static 'img\download.png' %}">  
+            <a > Update page</a>
+        </h1>
+        
+        </div>
+    
+    
+    <div class="topnav">
+              <a class="active"> <i class="fa fa-home"></i>  Home</a>
+              <a href="{% url 'index4' %}" > <i class="fa fa-floppy-o"></i> New student</a>
+              <a href="{% url 'index6' %}">  <i class="fa fa-edit"></i> Update student</a>
+              <a href="{% url 'index7' %}"><i class='fa fa-vcard-o'></i> Student information</a>
+              <a href="{% url 'index10' %}"> <i class="fa fa-user-circle-o"></i> Profile</a>
+             <a href="{% url 'index8' %}"><i class='fa fa-toggle-on'></i> Change student activity</a>
+              <a href="{% url 'index2' %}"><i class='fa fa-sign-out'></i> Signout</a> 
+              <a></a><a></a>
+       
+         <a>Search by name:</a>
+    
+         <form target="_top" action="dep/" class="formaa" method="post" >
+            {% csrf_token %}
+            <button type="submit" id="bot"><i class='fa fa-search' ></i> </button>
+              <input type="search" placeholder="Department signin"  name="name1">
+          </form>
+          
+          <form  target="_top" action="table/" class="formaa" method="post">
+              {% csrf_token %}
+             <button type="submit" id="bot" ><i class='fa fa-search' ></i> </button>
+              <input type="search" placeholder="Activity list " name="name2">
+             </form>
+            
+        
+      </div>
+    
+    
+
+
+
+
+    
+<div id="update" class="s">
+<div class="up">
+    <form method="post"> 
+        {% csrf_token %}
+<div class="forma"  onsubmit="invalide_no()" >
+   
+    <label >  write student ID to identify : </label><br>
+    <input type="number"  placeholder="ID" id="form1" name="OldID">
+    
+</div>
+
+    
+<div class="forma" >
+  
+<button type="button"  onclick="alert('this will delete all data of student')" name="delete">delete data</button>
+</div>
+
+
+<hr>
+<div class="forma" onsubmit="invalide_no2()" >
+   
+    <label> update student ID : </label><br>
+    <input type="number"  placeholder="ID" id="OldID" name="id1" >
+    
+</div>
+
+<hr>
+
+<div class="forma" onsubmit="invalide_no3()" >
+    
+    <label> update student Name : </label><br>
+    <input type="text"   placeholder="Full Name" id="name" name="name">
+
+</div>
+
+
+<hr>
+<div class="forma" >
+    
+    <label> update student date of birth : </label><br>
+    <input type="date"  placeholder="mm/kk/yy" name="birthday">
+</div>
+
+<hr>
+
+<div class="forma" onsubmit="invalide_no4()" >
+   
+    <label> update student GBA : </label><br>
+    <input type="number" step="0.1" placeholder="GBA" id="form4"  name="gpa">
+</div>
+
+<hr>
+
+<div style="margin-right:190px;"  >
+    
+    <label style="margin-left:170px;"> update gender: </label><br>
+    <select class="select" name="gender"  >
+
+        <option>Male</option>
+        
+        <option>Female</option>
+        
+        <option>Third level</option>
+        
+        <option>Fourth level</option>
+        
+        </select>
+    
+
+</div>
+
+<hr>
+<label > update student level: </label>
+<div class="select_box">
+<div class="forma" >
+    
+
+<select class="select" name="level" >
+
+<option>First level</option>
+
+<option>Second level</option>
+
+<option>Third level</option>
+
+<option>Fourth level</option>
+
+</select>
+</div>
+
+</div>
+
+<hr>
+<label > update student status: </label>
+<div class="select_box">
+<div class="forma" >
+    
+    
+
+    <select class="select" name="status" >
+    
+    <option>active</option>
+    
+    <option>inactive </option>
+    
+    </select>
+    </div>
+    
+</div> 
+
+<hr>
+
+<div class="forma">
+    
+    <label> update student email : </label><br>
+    <input type="email"  size="35" placeholder="Email"  name="email" >
+</div>
+
+
+<hr>
+<div class="forma" onsubmit="invalide_no5()" >
+    
+    <label> update student number : </label><br>
+    <input type="number" size="35" placeholder="Number" id="form5" name="mobile">
+</div>
+
+
+
+
+<div class="forma" >
+    
+    <button type="submit">save</button>
+</div>
+</form>
+</div>
+</div>
+</body>
+
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'css/new_student.css' %}">
+<head>
+  <script src="{%static 'js\new_sudent_update.js'%}"></script>  
+    <title>Student information</title> 
+    
+
+
+  </head>
+  <body>
+
+    <div class="head">
+
+      <h1> 
+          <img style="width: 70px;" src="{%static 'img\download.png'%}">  
+          <a>Student information Form </a>
+      </h1>
+      
+      </div>
+  
+  
+      <div class="topnav">
+        <a class="active"> <i class="fa fa-home"></i>  Home</a>
+        <a href="{% url 'index4' %}" > <i class="fa fa-floppy-o"></i> New student</a>
+        <a href="{% url 'index6' %}">  <i class="fa fa-edit"></i> Update student</a>
+        <a href="{% url 'index7' %}"><i class='fa fa-vcard-o'></i> Student information</a>
+        <a href="{% url 'index10' %}"> <i class="fa fa-user-circle-o"></i> Profile</a>
+       <a href="{% url 'index8' %}"><i class='fa fa-toggle-on'></i> Change student activity</a>
+        <a href="{% url 'index2' %}"><i class='fa fa-sign-out'></i> Signout</a> 
+        <a></a><a></a>
+      
+        <a>Search by name:</a>
+   
+        <form target="_top" action="dep/" class="formaa" method="post" >
+          {% csrf_token %}
+          <button type="submit" id="bot"><i class='fa fa-search' ></i> </button>
+            <input type="search" placeholder="Department signin"  name="name1">
+        </form>
+        
+        <form  target="_top" action="table/" class="formaa" method="post">
+            {% csrf_token %}
+           <button type="submit" id="bot" ><i class='fa fa-search' ></i> </button>
+            <input type="search" placeholder="Activity list " name="name2">
+           </form>
+           
+       
+     </div>
+
+
+
+
+
+
+    <div class="s">
+    <h1 style="color:silver">Student information</h1>
+    <form class="pay" action="" method="post">
+      {% csrf_token %}
+    <input type="text" name="name" placeholder="Full Name" required="" onsubmit="invalide_no3()" >
+    <input type="text" name="ID" placeholder="ID" required="" onsubmit="invalide_no()" ><br><br>
+    <label >Birthday:</label>
+      <input type="date" id="birthday" name="birthday" >
+      <label >GPA:</label>
+    <input type="Number" name="gpa" id="gpa" placeholder="GPA" required="" min="1" max="4" ><br><br>
+    <div class="select_box">
+    <label>Gender:</label>
+
+    <select id="gender"  name="gender" class="select" style="margin-right: 110px; padding-right: 28px;" >
+      <option value="null"></option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select><br>
+    </div>
+    <div class="select_box">
+      <label>Level:</label>
+      
+    <select id="level" name="level" class="select" style="margin-right: 110px;">
+      <option value="null"></option>
+      <option value="first">First Level</option>
+      <option value="sec">Second Level</option>
+      <option value="third">Third Level</option>
+      <option value="fourth">Fourth Level</option>
+    </select><br>
+      </div>
+      <div class="select_box">
+    <label>Status:</label>
+     
+    <select id="status" name="status" class="select" style="margin-right: 110px; padding-right: 28px;">
+      <option value="null"></option>
+      <option value="act">Active</option>
+      <option value="inact">Inactive</option>
+    </select> <br>
+</div>
+<div class="select_box">
+    <label>Department:</label>
+    <select id="department" name="department" class="select" style="margin-right: 110px; padding-right: 28px;">
+      <option value="null"></option>
+      <option value="it">IT</option>
+      <option value="cs">CS</option>
+      <option value="ds">DS</option>
+      <option value="ai">AI</option>
+      <option value="is">IS</option>
+    </select>
+</div>
+<br>
+    <input type="text" id="email" name="email" placeholder="Email" required="">
+    <input type="text" id="mobile" name="mobile" placeholder="Mobile Number" required="" onsubmit="invalide_no5()">
+    <button type="submit" class="signup" name="signup" >Save</button>
+        
+    </form></div>
+</body>
+</html>

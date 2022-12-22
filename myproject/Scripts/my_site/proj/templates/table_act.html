@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{%static 'css\table_act.css'%}">
+  <head>
+   
+    <title>Students Status</title>
+  <head>
+    
+    <div class="head">
+
+      <h1> 
+          <img style="width: 70px;" src="{% static 'img\download.png'%}">  
+          <a href="home_registred.html" >Student Table</a>
+      </h1>
+      
+      </div>
+  
+  
+      <div class="topnav">
+        <a class="active"> <i class="fa fa-home"></i>  Home</a>
+        <a href="{% url 'index4' %}" > <i class="fa fa-floppy-o"></i> New student</a>
+        <a href="{% url 'index6' %}">  <i class="fa fa-edit"></i> Update student</a>
+        <a href="{% url 'index7' %}"><i class='fa fa-vcard-o'></i> Student information</a>
+        <a href="{% url 'index10' %}"> <i class="fa fa-user-circle-o"></i> Profile</a>
+       <a href="{% url 'index8' %}"><i class='fa fa-toggle-on'></i> Change student activity</a>
+        <a href="{% url 'index2' %}"><i class='fa fa-sign-out'></i> Signout</a> 
+        <a></a><a></a>
+      
+        <a>Search by name:</a>
+   
+        <form target="_top" action="dep/" class="formaa" method="post" >
+          {% csrf_token %}
+          <button type="submit" id="bot"><i class='fa fa-search' ></i> </button>
+            <input type="search" placeholder="Department signin"  name="name1">
+        </form>
+        
+        <form  target="_top" action="table/" class="formaa" method="post">
+            {% csrf_token %}
+           <button type="submit" id="bot" ><i class='fa fa-search' ></i> </button>
+            <input type="search" placeholder="Activity list " name="name2">
+           </form>
+           
+       
+     </div>
+    <div style="overflow-x:auto;">
+      <table>
+         
+          <tr id="headT">
+              <ol>
+                <th id="col1" scope="col1" >Student Name</th>
+                <th id = "col2" scope="col2">Status</th>
+              </ol>
+          </tr>
+          <tbody>
+            {%for x in myobj%}
+            <tr>
+              <ol>
+                <td name="name">{{x.name}}</td>
+                  <td>
+                        <select name="status" id="status1" >
+                          <option value="none" >{{x.status}}</option>
+                          <option value="active" >Active</option>
+                     <option value="inactive" >inActive</option>
+                  </td>
+                        </select>
+              </ol>
+            </tr>
+            {%endfor%}
+            
+        
+      </tbody>
+    </table>
+  </div>
+  <body>
+    <button  class ="test" onclick="myFunction()"  style="margin-top:15% ;">Save</button>
+
+    <script src="{% static 'js\table_act.js'%}"></script>  
+  </body>
+</html>

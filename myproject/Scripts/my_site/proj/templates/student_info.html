@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{%static 'css\student_info.css'%}">
+<head>
+    <title>Student information</title> 
+   
+  </head>
+  <body>
+
+    <div class="head">
+
+      <h1> 
+          <img style="width: 70px;" src="{% static 'img\download.png'%}">  
+          <a>Student information Form </a>
+      </h1>
+      
+      </div>
+  
+  
+      <div class="topnav">
+        <a class="active"> <i class="fa fa-home"></i>  Home</a>
+        <a href="{% url 'index4' %}" > <i class="fa fa-floppy-o"></i> New student</a>
+        <a href="{% url 'index6' %}">  <i class="fa fa-edit"></i> Update student</a>
+        <a href="{% url 'index7' %}"><i class='fa fa-vcard-o'></i> Student information</a>
+        <a href="{% url 'index10' %}"> <i class="fa fa-user-circle-o"></i> Profile</a>
+       <a href="{% url 'index8' %}"><i class='fa fa-toggle-on'></i> Change student activity</a>
+        <a href="{% url 'index2' %}"><i class='fa fa-sign-out'></i> Signout</a> 
+        <a></a><a></a>
+      
+        <a>Search by name:</a>
+   
+        <form target="_top" action="dep/" class="formaa" method="post" >
+          {% csrf_token %}
+          <button type="submit" id="bot"><i class='fa fa-search' ></i> </button>
+            <input type="search" placeholder="Department signin"  name="name1">
+        </form>
+        
+        <form  target="_top" action="table/" class="formaa" method="post">
+            {% csrf_token %}
+           <button type="submit" id="bot" ><i class='fa fa-search' ></i> </button>
+            <input type="search" placeholder="Activity list " name="name2">
+           </form>
+           
+       
+     </div>
+  
+
+
+
+
+
+
+    <div class="s" style="height: 620px ;">
+    <h1 style="color:silver">Student information</h1>
+    <hr>
+    <form method="post" style="margin-left:60px;">
+      {% csrf_token %}
+      
+    <input type="number" name="id1" id="id1" required placeholder="Enter The Student ID" >
+    <button type="submit" id="searchid"><i class='fa fa-search' ></i> </button>
+  </form>
+    <hr>
+   
+    <h3>Full Name:{{myobj.name}}</h3> 
+    
+    <hr>
+    <h3>ID:{{myobj.id1}}</h3>
+    <hr>
+    <h3>birthday: {{myobj.birthday}}</h3>
+      <hr>
+    
+    <h3>Gender:{{myobj.gender}}</h3>
+    <hr>
+    <h3>Status:{{myobj.status}}</h3>
+    <hr>
+    <h3>level: {{myobj.level}}</h3>
+    <hr>
+    <h3>Email: {{myobj.email}}</h3>
+    <hr>
+    <h3>Mobile: {{myobj.mobile}}</h3>
+  
+        
+    </form></div>
+</body>
+</html>
